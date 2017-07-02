@@ -10,11 +10,13 @@ import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { LoaderComponent } from './loader/loader.component';
+import {SubNavigationComponent} from "./sub-navigation/sub-navigation.component";
 
 @NgModule({
   declarations: [
     ModalComponent,
     TopNavigationComponent,
+    SubNavigationComponent,
     ModalDirectivesDirective,
     CardComponent,
     ButtonComponent,
