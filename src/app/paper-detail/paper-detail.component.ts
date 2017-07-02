@@ -14,10 +14,12 @@ export class PaperDetailComponent implements OnInit {
   subject:string;
   paperID:string;
   selectedItem: IPaper;
+  hidden:boolean;
   @Output() selectedOut = new EventEmitter();
 
   // Every time the "item" input is changed, we copy it locally (and keep the original name to display)
 @Input() set selected(selected:IPaper) {
+  this.hidden = false;
     this.selectedItem = Object.assign({}, selected);
     console.log(this.selectedItem);
      if(this.selectedItem.paper_info) {
@@ -28,7 +30,9 @@ export class PaperDetailComponent implements OnInit {
     console.log(this.info);
   }
   constructor(){}
-  ngOnInit(){}
+  ngOnInit(){
+    this.hidden = true;
+  }
 
   submit(){
     console.log(this.info,this.subject);
@@ -36,6 +40,7 @@ export class PaperDetailComponent implements OnInit {
     this.info=null;
     this.subject=null;
     this.paperID=null;
+    this.hidden = true;
 
   }
   cancel(){
@@ -44,6 +49,7 @@ export class PaperDetailComponent implements OnInit {
       this.info = null;
       this.subject = null;
       this.paperID = null;
+      this.hidden = true;
     }
   }
 }
