@@ -37,19 +37,19 @@ export class PaperDetailComponent implements OnInit {
   submit(){
     console.log(this.info,this.subject);
     this.selectedOut.emit({paperID:this.paperID,inf:this.info,sub:this.subject});
-    this.info=null;
-    this.subject=null;
-    this.paperID=null;
-    this.hidden = true;
+    this.cleanUP()
 
   }
   cancel(){
     if(this.selectedItem.paper_info) {
       this.selectedItem = null;
-      this.info = null;
-      this.subject = null;
-      this.paperID = null;
-      this.hidden = true;
+      this.cleanUP();
     }
+  }
+  private cleanUP(){
+    this.info = null;
+    this.subject = null;
+    this.paperID = null;
+    this.hidden = true;
   }
 }
