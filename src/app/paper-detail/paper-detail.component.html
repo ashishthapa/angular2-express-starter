@@ -1,0 +1,19 @@
+<p>
+  paper-detail works!
+</p>
+<div >
+  <form #updateForm="ngForm">
+    <div>
+      <label>Item Name</label>
+      <input [(ngModel)]="info" name="info"
+             placeholder="Enter a name" type="text">
+    </div>
+    <div>
+      <label>Item Description</label>
+      <input [(ngModel)]="subject" name="subject"
+             placeholder="Enter a description" type="text">
+    </div>
+  </form>
+  <button (click)="submit()">Submit</button>
+  <button (click)="cancel()">cancel</button>
+</div>

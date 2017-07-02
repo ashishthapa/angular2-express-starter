@@ -2,27 +2,30 @@ import { json, urlencoded } from "body-parser";
 import * as compression from "compression";
 import * as express from "express";
 import * as path from "path";
+import * as bodyParser from "body-parser";
 
-import { feedRouter } from "./routes/feed";
-import { loginRouter } from "./routes/login";
-import { protectedRouter } from "./routes/protected";
-import { publicRouter } from "./routes/public";
-import { userRouter } from "./routes/user";
+import { Database} from './database/database';
+
+import {paperRouter} from "./routes/papers";
+
+
 
 const app: express.Application = express();
 
-app.disable("x-powered-by");
+Database.bootstrapDatabase();
 
+
+app.disable("x-powered-by");
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(json());
 app.use(compression());
 app.use(urlencoded({ extended: true }));
 
 // api routes
-app.use("/api/secure", protectedRouter);
-app.use("/api/login", loginRouter);
-app.use("/api/public", publicRouter);
-app.use("/api/feed", feedRouter);
-app.use("/api/user", userRouter);
+
+
+app.use("/api/paper", paperRouter);
 
 if (app.get("env") === "production") {
 

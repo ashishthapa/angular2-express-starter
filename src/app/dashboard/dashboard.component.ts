@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { FEED_ADD, FEED_REMOVE, FEED_ADD_COMMENT } from '../store/feed/feed.actions';
 import { IAppState } from '../store';
 
 @Component({
@@ -29,40 +28,19 @@ export class DashboardComponent {
 
   submitFeed(): void {
 
-    if (this.form.valid) {
 
-      this.store.dispatch({
-        type: FEED_ADD,
-        payload: this.form.value
-      });
-
-      this.form.reset();
-    }
   }
 
   submitCommentOnFeed(id: string, commentForm: FormGroup): void {
 
-    if (commentForm.valid) {
 
-      this.store.dispatch({
-        type: FEED_ADD_COMMENT,
-        payload: {
-          id,
-          comment: commentForm.value
-        }
-      });
 
-      commentForm.reset();
-    }
 
   }
 
   removeFeed(feed: {}): void {
 
-    this.store.dispatch({
-      type: FEED_REMOVE,
-      payload: feed
-    });
+
 
   }
 }

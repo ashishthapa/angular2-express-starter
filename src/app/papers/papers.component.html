@@ -1,0 +1,8 @@
+<p>
+  papers works!
+</p>
+<div class="success"></div>
+
+<app-paper-partials [papers]="papers$ | async " (outPaper)="update($event)" > </app-paper-partials>
+
+<app-paper-detail [selected]="selectedPaper$ | async " (selectedOut)="selectedUpdate($event)"></app-paper-detail>
