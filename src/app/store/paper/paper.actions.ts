@@ -18,6 +18,7 @@ export const PAPER_GET_ALL_FAIL = 'Paper: Get all';
 export const PAPER_GET_ALL_SUCCESS = 'Paper: Get all success';
 
 export const PAPER_UPDATE = 'Paper: Get update';
+export const PAPER_UPDATE_CANCELLED = 'Paper: Cancel update';
 export const PAPER_UPDATE_SELECTED = 'Paper: Get update one';
 export const PAPER_UPDATE_FAIL = 'Paper: Get update fail';
 export const PAPER_UPDATE_SUCCESS = 'Paper: Get upl success';

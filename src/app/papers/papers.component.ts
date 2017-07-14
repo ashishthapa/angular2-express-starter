@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {IAppState} from "../store/index";
 import {Observable} from "rxjs";
-import {PAPER_GET_ALL, PAPER_GET_ALL_SUCCESS, PAPER_UPDATE, PAPER_UPDATE_SELECTED} from "../store/paper/paper.actions";
+import {
+  PAPER_GET_ALL, PAPER_GET_ALL_SUCCESS, PAPER_UPDATE, PAPER_UPDATE_SELECTED,
+  PAPER_UPDATE_CANCELLED
+} from "../store/paper/paper.actions";
 import {IPaper} from "../store/paper/paper.reducer";
 import {PaperService} from "./papers.service";
 import {PaperPartialsComponent} from "../paper-partials/paper-partials.component";
@@ -17,6 +20,7 @@ import {PaperPartialsComponent} from "../paper-partials/paper-partials.component
 export class PapersComponent implements OnInit {
   papers$: Observable<Array<IPaper>>;
   selectedPaper$:Observable<IPaper>;
+  dummyPaper:IPaper=null;
 
   constructor(public store: Store<IAppState>, private paperService:PaperService) {
 
@@ -36,13 +40,17 @@ export class PapersComponent implements OnInit {
     });
 
   }
-  update($event){
+  selectPaper($event){
     console.log($event);
     this.store.dispatch({type:PAPER_UPDATE_SELECTED, payload:$event});
   }
   selectedUpdate($event){
     console.log($event);
     this.store.dispatch({type:PAPER_UPDATE, payload:{id:$event.paperID,info:$event.inf, subject:$event.sub}});
-    this.selectedPaper$.subscribe(data=>{console.log(data)});
+    //this.selectedPaper$.subscribe(data=>{console.log(data)});
+  }
+  resetForm($event){
+    console.log($event)
+    this.store.dispatch({type:PAPER_UPDATE_CANCELLED,payload:this.dummyPaper})
   }
 }

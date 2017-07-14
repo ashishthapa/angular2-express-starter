@@ -1,8 +1,9 @@
-import {Component, Input, EventEmitter, Output, OnInit} from '@angular/core';
+import {Component, Input, EventEmitter, Output, OnInit, ViewChild} from '@angular/core';
 import {IPaper} from "../store/paper/paper.reducer";
 import {IAppState} from "../store/index";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-paper-detail',
@@ -13,21 +14,26 @@ export class PaperDetailComponent implements OnInit {
   info:string;
   subject:string;
   paperID:string;
-  selectedItem: IPaper;
+  selectedItem: IPaper=null;
   hidden:boolean;
   @Output() selectedOut = new EventEmitter();
+  @Output() resetForm = new EventEmitter();
+
 
   // Every time the "item" input is changed, we copy it locally (and keep the original name to display)
 @Input() set selected(selected:IPaper) {
-  this.hidden = false;
     this.selectedItem = Object.assign({}, selected);
-    console.log(this.selectedItem);
-     if(this.selectedItem.paper_info) {
-       this.paperID = this.selectedItem.paperID;
+     console.log(this.selectedItem);
+     //if(this.selectedItem.paperID) this.hidden = false;
+
+  if(this.selectedItem.paperID) {
+      this.hidden = false;
+      this.paperID = this.selectedItem.paperID;
        this.info = this.selectedItem.paper_info.info;
        this.subject = this.selectedItem.paper_info.subject;
-     }
     console.log(this.info);
+
+  }
   }
   constructor(){}
   ngOnInit(){
@@ -41,15 +47,16 @@ export class PaperDetailComponent implements OnInit {
 
   }
   cancel(){
-    if(this.selectedItem.paper_info) {
-      this.selectedItem = null;
-      this.cleanUP();
-    }
+    console.log("cancel clicked");
+         this.cleanUP();
   }
   private cleanUP(){
+
     this.info = null;
     this.subject = null;
     this.paperID = null;
     this.hidden = true;
+    this.resetForm.emit({paperID:null});
+
   }
 }

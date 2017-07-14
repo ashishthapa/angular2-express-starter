@@ -9,15 +9,15 @@ import {IPaper} from "../store/paper/paper.reducer";
 })
 export class PaperPartialsComponent implements OnInit {
   @Input() papers:Array<IPaper>;
-  @Output() outPaper = new EventEmitter<IPaper>();
+  @Output() selected = new EventEmitter<IPaper>();
 
   constructor() { }
 
   ngOnInit() {
 
   }
-  edit(p:IPaper){
+  select(p:IPaper){
     console.log(p);
-    this.outPaper.emit(p);
+    this.selected.emit(p);
   }
 }
