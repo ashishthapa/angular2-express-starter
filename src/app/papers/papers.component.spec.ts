@@ -22,4 +22,6 @@ describe('PapersComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it("SHOUD DISPLAY ALL THE ITEMS", )
 });
