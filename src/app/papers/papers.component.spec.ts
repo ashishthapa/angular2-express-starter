@@ -22,6 +22,10 @@ describe('PapersComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+  /**
+   * test each of the action type from paperReducer..
+   * */
+  it("SHOUlD DISPLAY ALL THE ITEMS", ()=>{
 
-  it("SHOUD DISPLAY ALL THE ITEMS", )
+  })
 });
