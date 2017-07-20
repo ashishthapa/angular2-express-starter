@@ -40,7 +40,7 @@ export interface IPaper extends PaperInfo, Group{
 export type PaperState = IPaper[];
 const initialState:PaperState = [];
 
-export const paperReducer:ActionReducer<Array<IPaper>> = (state = initialState, action:Action):PaperState => {
+  export const paperReducer:ActionReducer<Array<IPaper>> = (state = initialState, action:Action):PaperState => {
 
   switch (action.type){
 

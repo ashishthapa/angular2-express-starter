@@ -7,6 +7,7 @@ import * as bodyParser from "body-parser";
 import { Database} from './database/database';
 
 import {paperRouter} from "./routes/papers";
+import {userRouter} from "./routes/user";
 
 
 
@@ -26,6 +27,7 @@ app.use(urlencoded({ extended: true }));
 
 
 app.use("/api/paper", paperRouter);
+app.use("/api/user", userRouter);
 
 if (app.get("env") === "production") {
 

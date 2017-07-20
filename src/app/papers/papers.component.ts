@@ -9,6 +9,7 @@ import {
 import {IPaper} from "../store/paper/paper.reducer";
 import {PaperService} from "./papers.service";
 import {PaperPartialsComponent} from "../paper-partials/paper-partials.component";
+import {USER_GET} from "../store/profile/profile.actions";
 
 @Component({
   selector: 'app-papers',
@@ -32,9 +33,7 @@ export class PapersComponent implements OnInit {
   ngOnInit() {
     console.log('paper component initialized ');
 
-
-
-   this.store.dispatch({
+    this.store.dispatch({
       type: PAPER_GET_ALL,
       payload:{data:'none'}
     });

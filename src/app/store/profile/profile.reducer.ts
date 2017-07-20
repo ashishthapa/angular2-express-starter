@@ -12,7 +12,7 @@ export const profileReducer: ActionReducer<IProfile> = (state: IProfile, action:
   switch (action.type) {
 
     case USER_GET_SUCCESS:
-
+      console.log(action.payload);
       return Object.assign({}, action.payload);
 
     default:
