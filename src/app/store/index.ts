@@ -7,20 +7,24 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
 import { IPaper, paperReducer } from './paper/paper.reducer';
+import {  trainReducer } from './train/train.reducer';
 import { CommonModule } from '@angular/common';
 import {PaperEffects} from "./paper/paper.effects";
 import {selectedPaperReducer} from "./paper/selectedpaper.reducer";
+import {Train} from "../trains/train.model";
 
 // all new reducers should be define here
 export interface IAppState {
   paper:IPaper[];
   selectedPaper:IPaper;
+  train:Train[];
 }
 
 // all new reducers should be define here
 const reducers = {
   paper:paperReducer,
-  selectedPaper:selectedPaperReducer
+  selectedPaper:selectedPaperReducer,
+  train:trainReducer
 };
 
 const productionReducer: ActionReducer<IAppState> = combineReducers(reducers);
