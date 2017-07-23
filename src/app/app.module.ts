@@ -9,6 +9,8 @@ import { effects, store, instrumentation } from './store';
 import { SharedModule } from './shared/shared.module';
 import {PaperService} from "./papers/papers.service";
 import { PaperDetailComponent } from './paper-detail/paper-detail.component';
+import {TrainService} from "./trains/train.service";
+import {TrainCompositionService} from "./trains/traincomposition.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PaperDetailComponent } from './paper-detail/paper-detail.component';
   ],
   providers: [
 
-    PaperService
+    PaperService,
+    TrainService
   ],
   bootstrap: [
     AppComponent

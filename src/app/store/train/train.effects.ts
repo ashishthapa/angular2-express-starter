@@ -21,8 +21,8 @@ export class TrainEffects {
   constructor(private action$:Actions, private trainService:TrainService){}
 
   @Effect()
-  papersGetAll$ = this.action$.ofType(TRAIN_GET_ALL).
+  trainGetAll$ = this.action$.ofType(TRAIN_GET_ALL).
   switchMap(() => this.trainService.getAllTrains())
-    .map(trains => ({ type:TRAIN_GET_ALL_SUCCESS, payload:trains}));
+   .map(trains => ({ type:TRAIN_GET_ALL_SUCCESS, payload:trains}));
 
 }

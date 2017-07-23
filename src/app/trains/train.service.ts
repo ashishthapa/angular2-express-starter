@@ -13,9 +13,9 @@ export class TrainService{
   constructor(private http:Http){
 
   }
-  getAllPapers():Observable<Array<Train>>{
-
-    return this.http.get(this.url)
+  getAllTrains():Observable<Array<Train>>{
+      console.log('inside train service')
+     return this.http.get(this.url)
       .map(res => res.json());
   }
 }
