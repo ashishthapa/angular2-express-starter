@@ -11,7 +11,10 @@ import {TrainDisplay} from "../model/traindisplay.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainDisplayComponent implements OnInit {
-
+  /**
+   * Input and output variables to receive and send data from parent to child.
+   *
+   * */
   @Input() trainDisplays:Array<TrainDisplay>;
   @Output() emitted = new EventEmitter<TrainDisplay>();
 

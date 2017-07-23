@@ -2,7 +2,9 @@
  * Created by athapa on 20/07/2017.
  */
 
-
+/**
+ * Actions to be dispatched.
+ * */
 
 export const TRAIN_GET_ALL = 'Train: Get all';
 export const TRAIN_GET_ALL_FAIL = 'Train: Get all fail';

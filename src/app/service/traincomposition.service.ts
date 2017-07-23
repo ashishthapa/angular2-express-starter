@@ -8,7 +8,10 @@ import {REMOVE_DISPLAY_TRAINS} from "../store/traindisplay/traindisplay.action";
 /**
  * Created by athapa on 21/07/2017.
  */
-
+/**
+ * Service to get TrainComposition, returns observable of type TrainComposition which is stored in TrainDisplay Store
+ * Data in store retreived from trainDisplay Reducer
+ * */
 @Injectable()
 export class TrainCompositionService{
   private pre_url:string = 'https://rata.digitraffic.fi/api/v1/compositions/';

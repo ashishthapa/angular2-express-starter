@@ -9,6 +9,9 @@ import {TRAIN_GET_ALL_SUCCESS} from "./train.action";
 export type TrainState = Train[];
 const initialState:TrainState = [];
 
+/**
+ * Reducer function to interact with Train store.
+ */
 export const trainReducer:ActionReducer<Array<Train>> = (state = initialState, action:Action):TrainState => {
 
   switch (action.type){

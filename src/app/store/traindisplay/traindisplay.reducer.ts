@@ -7,6 +7,10 @@ import {TRAIN_DISPLAY_GET_ALL, REMOVE_DISPLAY_TRAINS} from "./traindisplay.actio
 export type TrainState = TrainDisplay[];
 const initialState:TrainState = [];
 
+/**
+ * Reducer function to interact with TrainDisplay store.
+ */
+
 export const trainDisplayReducer:ActionReducer<Array<TrainDisplay>> = (state = initialState, action:Action):TrainState => {
 
   switch (action.type){

@@ -9,6 +9,13 @@ import {TrainCompositionService} from "../service/traincomposition.service";
 import {TrainDisplay} from "../model/traindisplay.model";
 import {TRAIN_DISPLAY_GET_ALL, REMOVE_DISPLAY_TRAINS} from "../store/traindisplay/traindisplay.action";
 import {JourneySections} from "../model/traincomposition.model";
+/**
+ * Component of type TrainComponent responsible for observing Train and TrainDisplay Store
+ * OnInit The action TRAIN_GET_ALL is dispatched, the train$ observable is subscribed to get live data
+ * using which is used to create DISPLAY OBJECT. The display object is also saved in store so that it provides
+ * observable which could be passed to child component so that the future changes are reflected
+ * cleanUP and emitted methods to be used per need (for cleaning the store and retreiving selected data respectively.)
+ * */
 
 @Component({
   selector: 'trains',

@@ -1,6 +1,10 @@
 /**
  * Created by athapa on 21/07/2017.
  */
+
+/**
+ * Interfaces to be used in TrainComposition
+ * */
   export interface JourneySections {
     beginTimeTableRow:BeginTimeTableRow,
     endTimeTableRow:EndTimeTableRow,
@@ -35,6 +39,10 @@ export interface Wagons{
   length: number,
   pet: boolean
 }
+
+/**
+ * TrainComposition Interface, type of data retreived using trainType, trainNumber and Date
+ * */
 export interface TrainComposition{
   trainNumber: number,
   departureDate: string,

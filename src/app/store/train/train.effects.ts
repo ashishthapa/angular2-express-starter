@@ -19,7 +19,12 @@ import {TrainService} from "../../service/train.service";
 export class TrainEffects {
 
   constructor(private action$:Actions, private trainService:TrainService){}
-
+  /**
+   * Listen to action TRAIN_GET_ALL,
+   * Get observable of array of Trains
+   * finally dispatch TRAIN_GET_ALL_SUCCESS, so that the data is stored in Train store
+   * (leads to trainReducer)
+   * */
   @Effect()
   trainGetAll$ = this.action$.ofType(TRAIN_GET_ALL).
   switchMap(() => this.trainService.getAllTrains())
