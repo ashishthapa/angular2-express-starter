@@ -17,6 +17,7 @@ export interface Wagons{
 export interface ITrainDisplay {
    trainType?:string;
    trainNumber?:number;
+  trainMoving?:boolean;
    beginTableRow?:string;
    endTimeTableRow?:string;
    locomotiveType?:Locomotives[];
@@ -34,17 +35,19 @@ export interface ITrainDisplay {
   export class TrainDisplay implements ITrainDisplay{
     trainType?:string;
     trainNumber?:number;
+    trainMoving?:boolean;
     beginTableRow?:string;
     endTimeTableRow?:string;
     locomotiveType?:Locomotives[];
     wagons?:Wagons[];
     maximumSpeed?:number;
     totalLength?:number;
-  constructor(   trainType?:string,trainNumber?:number, beginTableRow?:string,endTimeTableRow?:string,
+  constructor(   trainType?:string,trainNumber?:number, trainMoving?:boolean, beginTableRow?:string,endTimeTableRow?:string,
     locomotives?:Locomotives[], wagons:Wagons[]=[],maximumSpeed:number=0, totalLength?:number){
     this.trainType = trainType;
-    this.trainNumber=trainNumber
-      this.beginTableRow= beginTableRow
+    this.trainNumber=trainNumber;
+    this.trainMoving=trainMoving;
+      this.beginTableRow= beginTableRow;
       this.endTimeTableRow = endTimeTableRow;
       this.locomotiveType=locomotives;
       this.wagons=wagons;

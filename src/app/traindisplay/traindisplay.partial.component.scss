@@ -1,0 +1,68 @@
+
+/**
+Declare variables to be used in .CSS */
+$divHeight:130px;
+
+/** @Media Queries*/
+/*@breakpoints*/
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 34em,
+  // Medium screen / tablet
+  md: 48em,
+  // Large screen / desktop
+  lg: 62em,
+  // Extra large screen / wide desktop
+  xl: 75em
+) !default;
+
+@mixin media-mixins-mobile {
+  @media screen and(max-width: 34em){
+    @content
+  }
+}
+@mixin media-mixins-tablet{
+  @media screen and (min-width:34em)and (max-width: 47.9em){
+    @content
+  }
+}
+@mixin media-mixins-laptop{
+  @media screen and (min-width:48em)and (max-width: 63.9em){
+    @content
+  }
+}@mixin media-mixins-desktop-and-bigger{
+  @media screen and (min-width:64em){
+    @content
+  }
+}
+
+.trainDisplayPartial{
+  //min-width: 100%;
+  .trainDisplayDiv {
+
+    @include media-mixins-mobile{
+    }
+    @include media-mixins-tablet{
+    }@include media-mixins-laptop{
+     }@include media-mixins-desktop-and-bigger{
+      }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

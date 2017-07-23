@@ -1,11 +1,10 @@
-# This is a fork from https://github.com/vladotesanovic/angular2-express-starter, 
+* This is a fork from https://github.com/vladotesanovic/angular2-express-starter, 
 Please check for original version and License by vladotesanovic
 
-Current fork uses Ngrx/store, Ngrx/effects for asynchronous data sync. Mongo( + Mongoose ), Express, A2(+Typescript) & Node powered. 
-More credits and sources coming...
-
-Inspirations
-* Amazing work by Lukas Ruebbelke : Build a Better Angular 2 Application with Redux and ngrx. Available at:
-  (http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/).
-* Comprehensive Introduction to @ngrx/store: by @BTroncone  available at : (https://gist.github.com/btroncone/a6e4347326749f938510)
+This is an effort to load live trains. It uses Angular2 for scripting. Rxjs Observables are used to create observable
+streams which then could be subscribed to. Ngrx/effects are used to listen to a particular action and start a new 
+one based on the former action. The data retrieved from HTTP GET is stored to ngrx/store (through select method) which is
+then subscribed to get continuous data. The data manipulation (Only receive in this case) is done through reducer functions.
+The reducers only react to dispatched action using the store (Store is a JS Object which stores the state of the whole 
+application) & data is not and should not be mutated directly anywhere else to retain the core concept of Redux.
 

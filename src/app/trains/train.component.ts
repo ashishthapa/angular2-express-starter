@@ -40,7 +40,7 @@ export class TrainComponent implements OnInit {
       .subscribe(data => {
         if(data.journeySections){
           data.journeySections.forEach(data=>{
-            this.createTrainDisplay(res.trainType, res.trainNumber, data);
+            this.createTrainDisplay(res.trainType, res.trainNumber,res.runningCurrently, data);
 
           })
         } else {
@@ -50,8 +50,8 @@ export class TrainComponent implements OnInit {
         this.store.dispatch({type:TRAIN_DISPLAY_GET_ALL, payload:this.td})
       })));
   }
-  createTrainDisplay(trainType:string,trainNumber:number, data:JourneySections){
-    this.td =  new TrainDisplay(trainType, trainNumber, data.beginTimeTableRow.stationShortCode,
+  createTrainDisplay(trainType:string,trainNumber:number,moving:boolean, data:JourneySections){
+    this.td =  new TrainDisplay(trainType, trainNumber,moving, data.beginTimeTableRow.stationShortCode,
       data.endTimeTableRow.stationShortCode, data.locomotives,data.wagons,data.maximumSpeed,
       data.totalLength);
   }

@@ -5,6 +5,8 @@
       <h6 *ngIf="trains.wagons">{{"Wagons: "}}<span *ngFor="let wag of trains.wagons">{{wag.wagonType+ " ,"}}</span>
        {{"(" + trains.totalLength + " meters)"}}</h6>
       <h6 *ngIf="trains">{{"Max Speed:"+ trains.maximumSpeed+"KM/h"}}</h6>
+      <h6 *ngIf="trains.trainMoving">{{"Current status: Moving"}}</h6>
+      <h6 *ngIf="!trains.trainMoving">{{"Current status: Not moving"}}</h6>
   </div>
 </div>
 

@@ -7,8 +7,8 @@ import {TrainDisplay} from "../model/traindisplay.model";
 @Component({
   selector: 'train-display',
   templateUrl: './traindisplay.component.html',
-  styleUrls: ['./traindisplay.component.css']
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./traindisplay.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainDisplayComponent implements OnInit {
 
