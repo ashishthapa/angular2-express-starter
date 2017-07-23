@@ -7,10 +7,8 @@ import { AppComponent } from './app.component';
 import { routing } from './app.router';
 import { effects, store, instrumentation } from './store';
 import { SharedModule } from './shared/shared.module';
-import {PaperService} from "./papers/papers.service";
-import { PaperDetailComponent } from './paper-detail/paper-detail.component';
-import {TrainService} from "./trains/train.service";
-import {TrainCompositionService} from "./trains/traincomposition.service";
+import {TrainService} from "./service/train.service";
+import {TrainCompositionService} from "./service/traincomposition.service";
 
 @NgModule({
   declarations: [
@@ -27,8 +25,6 @@ import {TrainCompositionService} from "./trains/traincomposition.service";
     instrumentation
   ],
   providers: [
-
-    PaperService,
     TrainService
   ],
   bootstrap: [

@@ -6,28 +6,21 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { IPaper, paperReducer } from './paper/paper.reducer';
 import {  trainReducer } from './train/train.reducer';
 import { CommonModule } from '@angular/common';
-import {PaperEffects} from "./paper/paper.effects";
-import {selectedPaperReducer} from "./paper/selectedpaper.reducer";
-import {Train} from "../trains/train.model";
+import {Train} from "../model/train.model";
 import {TrainEffects} from "./train/train.effects";
-import {TrainDisplay} from "../trains/traindisplay.model";
+import {TrainDisplay} from "../model/traindisplay.model";
 import {trainDisplayReducer} from "./traindisplay/traindisplay.reducer";
 
 // all new reducers should be define here
 export interface IAppState {
-  paper:IPaper[];
-  selectedPaper:IPaper;
   train:Train[];
   trainDisplay:TrainDisplay[];
 }
 
 // all new reducers should be define here
 const reducers = {
-  paper:paperReducer,
-  selectedPaper:selectedPaperReducer,
   train:trainReducer,
   trainDisplay:trainDisplayReducer
 };
@@ -58,7 +51,6 @@ export const instrumentation: ModuleWithProviders =
   (!environment.production) ? StoreDevtoolsModule.instrumentOnlyWithExtension() : DummyModule.forRoot();
 
 export const effects: ModuleWithProviders[] = [
-    EffectsModule.run(PaperEffects),
     EffectsModule.run(TrainEffects)
 
 ];

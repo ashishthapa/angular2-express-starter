@@ -3,7 +3,7 @@
  */
 
 
-import {Train} from "../../trains/train.model";
+import {Train} from "../../model/train.model";
 import {ActionReducer, Action} from "@ngrx/store";
 import {TRAIN_GET_ALL_SUCCESS} from "./train.action";
 export type TrainState = Train[];

@@ -1,3 +1,3 @@
 
-<train-display [trainDisplays]="trainsDisplay$ | async " > </train-display>
+<train-display [trainDisplays]="trainsDisplay$ | async " (emitted)="emitted($event)"> </train-display>
 

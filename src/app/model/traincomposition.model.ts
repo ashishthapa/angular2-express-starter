@@ -1,16 +1,6 @@
 /**
  * Created by athapa on 21/07/2017.
  */
-export interface TrainComposition{
-  trainNumber: number,
-  departureDate: string,
-  operatorUICCode: number,
-  operatorShortCode: string,
-  trainCategory: string,
-  trainType: string,
-  version: number,
-  journeySections: JourneySections[],
-  }
   export interface JourneySections {
     beginTimeTableRow:BeginTimeTableRow,
     endTimeTableRow:EndTimeTableRow,
@@ -39,5 +29,19 @@ export interface Locomotives{
   powerType:string
 }
 export interface Wagons{
-
+  wagonType: string,
+  location: number,
+  salesNumber: number,
+  length: number,
+  pet: boolean
+}
+export interface TrainComposition{
+  trainNumber: number,
+  departureDate: string,
+  operatorUICCode: number,
+  operatorShortCode: string,
+  trainCategory: string,
+  trainType: string,
+  version: number,
+  journeySections: JourneySections[],
 }

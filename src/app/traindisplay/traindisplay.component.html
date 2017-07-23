@@ -1,8 +1,9 @@
-<div class="row">
-  <div  *ngFor="let trains of trainDisplays" class="col-xs12 col-sm-6 col-lg-4 displayHeight">
+<div class="row ">
+  <div  *ngFor="let trains of trainDisplays" class="col-xs12 col-sm-6 col-lg-4 displayBox" (click)="emit(trains)">
       <h4>{{trains.trainType}}{{trains.trainNumber+ ' '}}<span *ngIf="trains.beginTableRow">{{trains.beginTableRow+'-'}}{{trains.endTimeTableRow}} </span></h4>
-      <h6 *ngIf="trains.locomotiveType">{{"Locomotive:"+ trains.locomotiveType}}</h6>
-      <h6 *ngIf="trains">{{"Wagons:"+ trains.totalLength}}</h6>
+      <h6 *ngFor="let loco of trains.locomotiveType">{{"Locomotive: "+loco.locomotiveType}}{{" "+loco.powerType}}</h6>
+      <h6 *ngIf="trains.wagons">{{"Wagons: "}}<span *ngFor="let wag of trains.wagons">{{wag.wagonType+ " ,"}}</span>
+       {{"(" + trains.totalLength + " meters)"}}</h6>
       <h6 *ngIf="trains">{{"Max Speed:"+ trains.maximumSpeed+"KM/h"}}</h6>
   </div>
 </div>

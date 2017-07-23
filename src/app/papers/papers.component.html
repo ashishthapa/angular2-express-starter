@@ -1,8 +1,0 @@
-<p>
-  papers
-</p>
-<div class="success"></div>
-
-<app-paper-partials [papers]="papers$ | async " (selected)="selectPaper($event)" > </app-paper-partials>
-
-<app-paper-detail [selected]="selectedPaper$ | async " (selectedOut)="selectedUpdate($event)" (resetForm)="resetForm($event)"></app-paper-detail>

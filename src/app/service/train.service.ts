@@ -1,7 +1,7 @@
 import {Http} from "@angular/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {Train} from "./train.model";
+import {Train} from "../model/train.model";
 /**
  * Created by athapa on 20/07/2017.
  */

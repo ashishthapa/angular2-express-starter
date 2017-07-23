@@ -1,7 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
-import {TrainComposition} from "./traincomposition.model";
+import {TrainComposition} from "../model/traincomposition.model";
+import {IAppState} from "../store/index";
+import {Store} from "@ngrx/store";
+import {REMOVE_DISPLAY_TRAINS} from "../store/traindisplay/traindisplay.action";
 /**
  * Created by athapa on 21/07/2017.
  */
@@ -11,7 +14,7 @@ export class TrainCompositionService{
   private pre_url:string = 'https://rata.digitraffic.fi/api/v1/compositions/';
   private post_url:string = '?departure_date=';
   private trainComposition:TrainComposition
-  constructor(private http:Http){
+  constructor(private http:Http, private store:Store<IAppState>){
 
   }
   getAllTrainComposition(trainNum:number, date:string):Observable<TrainComposition>{

@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/of';
 import {Observable} from "rxjs";
-import {TrainService} from "../../trains/train.service";
+import {TrainService} from "../../service/train.service";
 
 @Injectable()
 export class TrainEffects {

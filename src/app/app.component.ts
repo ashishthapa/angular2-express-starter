@@ -18,10 +18,11 @@ export class AppComponent {
   observable$: Observable<{}>;
 
   constructor(http: Http, store: Store<IAppState>) {
+    /*
     this.observable$ = http
       .get('/api/public/simple')
       .map((response: Response) => response.json());
 
-
+*/
   }
 }
