@@ -8,7 +8,7 @@ import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-paper-detail',
   templateUrl: './paper-detail.component.html',
-  styleUrls: ['./paper-detail.component.css']
+  styleUrls: ['./paperdetail.component.scss']
 })
 export class PaperDetailComponent implements OnInit {
   info:string;

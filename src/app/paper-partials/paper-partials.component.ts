@@ -4,7 +4,7 @@ import {IPaper} from "../store/paper/paper.reducer";
 @Component({
   selector: 'app-paper-partials',
   templateUrl: './paper-partials.component.html',
-  styleUrls: ['./paper-partials.component.css'],
+  styleUrls: ['./paperlist.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaperPartialsComponent implements OnInit {

@@ -1,0 +1,22 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+/** @Media Queries*/
+@mixin media-mixins-mobile {
+  @media screen and(max-width: 34em) and (max-width: 47.9em){
+    @content
+  }
+}
+@mixin media-mixins-tablet{
+  @media screen and (min-width:48em)and (max-width: 63.9em){
+    @content
+  }
+}
+@mixin media-mixins-laptop{
+  @media screen and (min-width:64em)and (max-width: 74.9em){
+    @content
+  }
+}
+@mixin media-mixins-desktop-and-bigger{
+  @media screen and (min-width:75em){
+    @content
+  }
+}
