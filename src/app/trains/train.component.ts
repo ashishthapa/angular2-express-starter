@@ -42,6 +42,10 @@ export class TrainComponent implements OnInit {
       type: TRAIN_GET_ALL
     });
     this.cleanUP();
+    this.getTrainDisplay();
+  }
+  /** Subscribe to train observable and get data for train display*/
+  getTrainDisplay(){
     this.trains$.subscribe(data=>data.forEach(res=>this.service
       .getAllTrainComposition(res.trainNumber,res.departureDate)
       .subscribe(data => {
@@ -62,12 +66,16 @@ export class TrainComponent implements OnInit {
       data.endTimeTableRow.stationShortCode, data.locomotives,data.wagons,data.maximumSpeed,
       data.totalLength);
   }
+  /** clean up Train Display reducer .... */
   cleanUP(){
     this.store.dispatch({type:REMOVE_DISPLAY_TRAINS, payload:[]})
   }
+ /** event emitted method */
+
   emitted($event){
     console.log('The list clicked is: ')
     console.log($event);
   }
+
 
 }

@@ -1,0 +1,35 @@
+@import "./../../media_mixins";
+
+$displayBoxHeightDefault:130px;
+$displayBoxBorderDefault:1px solid black;
+
+$displayBoxHeightMobile:140px;
+$displayBoxBorderMobile:1px solid yellow;
+
+$displayBoxHeightTablet:150px;
+$displayBoxBorderTablet:1px solid red;
+
+$displayBoxHeightLaptop:160px;
+$displayBoxBorderLaptop:1px solid silver;
+
+@mixin displayBox($dBH, $dBB){
+  height:$dBH;
+  border:$dBB;
+}
+
+
+
+.displayBox{
+
+  @include media-mixins-mobile{
+    @include displayBox($displayBoxHeightMobile,$displayBoxBorderMobile)
+  }@include media-mixins-tablet{
+    @include displayBox($displayBoxHeightTablet,$displayBoxBorderTablet)
+  }@include media-mixins-laptop{
+    @include displayBox($displayBoxHeightLaptop,$displayBoxBorderLaptop)
+  }@include media-mixins-desktop-and-bigger{
+    @include displayBox($displayBoxHeightDefault,$displayBoxBorderDefault)
+  }
+
+
+}
