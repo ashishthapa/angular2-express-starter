@@ -1,6 +1,6 @@
 <div class="paperList">
 <ul *ngFor="let paper of papers">
-  <li > {{paper.paper_info.info}}</li><button (click)="select(paper)">edit</button>
+  <li><span class="paperInfo"> {{paper.paper_info.info}}</span><button class="selectButton" (click)="select(paper)">edit</button></li>
 </ul>
 </div>
 

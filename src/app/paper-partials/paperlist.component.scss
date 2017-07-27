@@ -9,6 +9,8 @@ $bgColorDefault:yellow;
 $bgColorTablet:green;
 $bgColorLaptop:grey;
 $listStyle:none;
+$liHeight:30px;
+$marginBottom:45px;
 
 
 /**
@@ -18,28 +20,38 @@ member mixins
 */
 
 
-@mixin paperList($listStyle, $bgColor){
+@mixin paperList($listStyle, $liHeight, $bgColor, $fontSize:12px, $paperInfoWidth:70px){
+  margin-bottom: $marginBottom;
   ul{
-    list-style-type: $listStyle;
+    list-style: $listStyle;
   }
   li{
+    display: inline-block;
+    height:$liHeight;
+    font-size: $fontSize;
+  }
+  .selectButton{
     background-color: $bgColor;
+  }
+  .paperInfo{
+    display: inline-block;
+    width: $paperInfoWidth;
   }
 
 }
 
 .paperList{
   @include media-mixins-mobile{
-    @include paperList($listStyle, $bgColorDefault)
+    @include paperList($listStyle,$liHeight, $bgColorDefault, $fontSize:12px, $paperInfoWidth:100px)
   }
   @include media-mixins-tablet{
-    @include paperList($listStyle, $bgColorTablet)
+    @include paperList($listStyle,$liHeight, $bgColorTablet,$fontSize:14px, $paperInfoWidth:340px)
   }
   @include media-mixins-laptop{
-    @include paperList($listStyle, $bgColorLaptop)
+    @include paperList($listStyle,$liHeight, $bgColorLaptop, $fontSize:16px, $paperInfoWidth:440px)
   }
   @include media-mixins-desktop-and-bigger{
-    @include paperList($listStyle, $bgColorDefault)
+    @include paperList($listStyle,$liHeight, $bgColorDefault, $fontSize:18px,$paperInfoWidth:640px)
   }
 }
 
