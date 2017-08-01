@@ -26,8 +26,7 @@ export class TrainEffects {
    * (leads to trainReducer)
    * */
   @Effect()
-  trainGetAll$ = this.action$.ofType(TRAIN_GET_ALL).
-  switchMap(() => this.trainService.getAllTrains())
-   .map(trains => ({ type:TRAIN_GET_ALL_SUCCESS, payload:trains}));
+  trainGetAll$ = this.action$.ofType(TRAIN_GET_ALL).switchMap(() => this.trainService.getAllTrains())
+                  .map(trains => ({ type:TRAIN_GET_ALL_SUCCESS, payload:trains}));
 
 }

@@ -31,7 +31,7 @@ export class TrainComponent implements OnInit {
 
   constructor(public store: Store<IAppState>, private service:TrainCompositionService) {
     console.log('before init'+this.trains$);
-    this.trains$ = this.store.select('train');
+    //this.trains$ = this.store.select('train');
     this.trainsDisplay$ = this.store.select('trainDisplay');
   }
 
@@ -39,9 +39,11 @@ export class TrainComponent implements OnInit {
   ngOnInit() {
     console.log('train component initialized ');
     this.store.dispatch({
-      type: TRAIN_GET_ALL
+      type: TRAIN_GET_ALL,
+      payload:"string data"
     });
-    this.cleanUP();
+
+    //this.cleanUP();
     this.getTrainDisplay();
   }
   /** Subscribe to train observable and get data for train display*/
