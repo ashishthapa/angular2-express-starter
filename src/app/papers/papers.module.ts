@@ -6,9 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import {PapersComponent} from "./papers.component";
 import {routing} from "./papers.router";
-import {PaperPartialsComponent} from "../paper-partials/paper-partials.component";
 import {FormsModule} from "@angular/forms";
-import {PaperDetailComponent} from "../paper-detail/paper-detail.component";
 
 
 @NgModule({
@@ -17,7 +15,7 @@ import {PaperDetailComponent} from "../paper-detail/paper-detail.component";
     routing,
     FormsModule
   ],
-  declarations:[PapersComponent, PaperPartialsComponent, PaperDetailComponent],
+  declarations:[PapersComponent],
   bootstrap:[PapersComponent]
 })
 export class PapersModule{
