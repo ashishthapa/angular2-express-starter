@@ -4,7 +4,6 @@ import * as express from "express";
 import * as path from "path";
 import * as bodyParser from "body-parser";
 
-import {userRouter} from "./routes/user";
 import {feedRouter} from "./routes/feed";
 import {publicRouter} from "./routes/public";
 
@@ -36,8 +35,6 @@ app.use(urlencoded({ extended: true }));
 
 // api routes
 
-
-app.use("/api/user", userRouter);
 app.use("/api/public", publicRouter);
 app.use("/api/feeds", feedRouter);
 

@@ -15,17 +15,8 @@ import {Http, Response} from "@angular/http";
 export class DashboardComponent {
  feeds:Feeds=null;
 
-  feeds$: Observable<IFeeds>;
 
-  constructor(private http:Http, public store: Store<IAppState>) {
-    /***
-    http
-      .get('/api/feeds/')
-      .map(res=>res)
-      .subscribe(data=> {
-        console.log(data.text())
-     });
-    */
+  constructor(private http:Http) {
   }
   ngOnInit() {
     let text='';
@@ -37,22 +28,14 @@ export class DashboardComponent {
     let textArray:Array<string>=null;
     let feed:Feed= null;
     let feedArray:Feed[]=[];
-    console.log('on init called');
-   /** this.http.get('https://crossorigin.me/http://tuftuf.gambitlabs.fi/feed.txt')
-      .map(res => res)
-      .subscribe(
-        data => {
-          text = data.text();
-          */
+
    this.http.get('/api/feeds/')
      .map(res=>res)
-     .subscribe(data=>{//console.log(data.text())
+     .subscribe(data=>{
        text = data.text();
         date = text.substr(0,text.indexOf('\n'));
-          console.log('The date is '+ date+ "It has :" +date.length+'characters');
           index = date.length+1;
           firstT = text.substr(index);
-          //console.log(firstT.substr(index, firstT.indexOf('/\r\n|\r|\n/')));
           let textArray = firstT.split(/\r\n|\r|\n/);
           for(var i=0;i<textArray.length-1;i++) {
 
@@ -61,14 +44,7 @@ export class DashboardComponent {
             let key = keyValueArray[0];
             let value = keyValueArray[1];
             console.log(key, value)
-            // key = textArray[i].substr(0,textArray[i].indexOf(':'));
-            //value  = textArray[i].substr(textArray[i].indexOf(':')+1);
 
-            /***
-            console.log(key, value);
-            console.log('Key ' + textArray[i].substr(0,textArray[i].indexOf(':'))
-              + ' Value '+textArray[i].substr(textArray[i].indexOf(':')+1));
-             */
             feed = new Feed(key, value);
             console.log(feed);
             feedArray.push(feed);

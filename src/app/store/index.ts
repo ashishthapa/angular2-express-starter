@@ -12,15 +12,13 @@ import { CommonModule } from '@angular/common';
 
 // all new reducers should be define here
 export interface IAppState {
-  //paper:IPaper[];
-  //selectedPaper:IPaper;
+
 
 }
 
 // all new reducers should be define here
 const reducers = {
-  //paper:paperReducer,
-  //selectedPaper:selectedPaperReducer,
+
 };
 
 const productionReducer: ActionReducer<IAppState> = combineReducers(reducers);
@@ -49,5 +47,4 @@ export const instrumentation: ModuleWithProviders =
   (!environment.production) ? StoreDevtoolsModule.instrumentOnlyWithExtension() : DummyModule.forRoot();
 
 export const effects: ModuleWithProviders[] = [
-    //EffectsModule.run(PaperEffects),
 ];
