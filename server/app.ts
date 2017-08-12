@@ -4,16 +4,14 @@ import * as express from "express";
 import * as path from "path";
 import * as bodyParser from "body-parser";
 
-import { Database} from './database/database';
-
-import {paperRouter} from "./routes/papers";
 import {userRouter} from "./routes/user";
+import {feedRouter} from "./routes/feed";
+import {publicRouter} from "./routes/public";
 
 
 
 const app: express.Application = express();
 
-Database.bootstrapDatabase();
 
 app.use(function (req, res, next) {
 
@@ -39,8 +37,9 @@ app.use(urlencoded({ extended: true }));
 // api routes
 
 
-app.use("/api/paper", paperRouter);
 app.use("/api/user", userRouter);
+app.use("/api/public", publicRouter);
+app.use("/api/feeds", feedRouter);
 
 if (app.get("env") === "production") {
 

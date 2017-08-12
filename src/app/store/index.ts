@@ -6,26 +6,21 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { IPaper, paperReducer } from './paper/paper.reducer';
 import { CommonModule } from '@angular/common';
-import {PaperEffects} from "./paper/paper.effects";
-import {selectedPaperReducer} from "./paper/selectedpaper.reducer";
-import {profileReducer, IProfile} from "./profile/profile.reducer";
-import {ProfileEffects} from "./profile/profile.effects";
+
+
 
 // all new reducers should be define here
 export interface IAppState {
-  paper:IPaper[];
-  selectedPaper:IPaper;
-  profile:IProfile;
+  //paper:IPaper[];
+  //selectedPaper:IPaper;
 
 }
 
 // all new reducers should be define here
 const reducers = {
-  paper:paperReducer,
-  selectedPaper:selectedPaperReducer,
-  profile:profileReducer
+  //paper:paperReducer,
+  //selectedPaper:selectedPaperReducer,
 };
 
 const productionReducer: ActionReducer<IAppState> = combineReducers(reducers);
@@ -54,6 +49,5 @@ export const instrumentation: ModuleWithProviders =
   (!environment.production) ? StoreDevtoolsModule.instrumentOnlyWithExtension() : DummyModule.forRoot();
 
 export const effects: ModuleWithProviders[] = [
-    EffectsModule.run(PaperEffects),
-    EffectsModule.run(ProfileEffects)
+    //EffectsModule.run(PaperEffects),
 ];
