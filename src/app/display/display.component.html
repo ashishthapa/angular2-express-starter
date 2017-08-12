@@ -1,0 +1,30 @@
+<h2 *ngIf="internalFeed">{{'Live Feed on :'}} {{internalFeed.date}}</h2>
+<div *ngIf="internalFeed.feeds">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th >Index</th>
+        <th >Data</th>
+        <th >Unit</th>
+        <th >Data</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let feeds of internalFeed.feeds">
+        <td>
+          {{feeds.index}}
+        </td>
+
+        <td>
+          {{feeds.data}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ul *ngFor=" let feeds of internalFeed.feeds">
+    <li>{{feeds.index}}{{feeds.data}}</li>
+  </ul>
+</div>
+

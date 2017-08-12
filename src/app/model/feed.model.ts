@@ -2,13 +2,13 @@
  * Created by athapa on 07/08/2017.
  */
 export interface IFeed {
-    index:number;
+    index:string;
     data:string;
 }
 export class Feed implements IFeed {
-  index:number;
+  index:string;
   data:string;
-  constructor(ind:number, dat:string){
+  constructor(ind:string, dat:string){
     this.index = ind;
     this.data = dat;
   }

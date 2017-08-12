@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppState } from '../store';
-import {Feeds, Feed} from "../model/feed.model";
+import {Feeds, Feed, IFeeds} from "../model/feed.model";
 import {Http, Response} from "@angular/http";
 
 @Component({
@@ -13,16 +13,19 @@ import {Http, Response} from "@angular/http";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
- private feeds:Feeds=null;
+ feeds:Feeds=null;
 
-  feeds$: Observable<{}>;
+  feeds$: Observable<IFeeds>;
 
   constructor(private http:Http, public store: Store<IAppState>) {
+    /***
     http
       .get('/api/feeds/')
       .map(res=>res)
-      .subscribe(data=>{console.log(data.text())});
-
+      .subscribe(data=> {
+        console.log(data.text())
+     });
+    */
   }
   ngOnInit() {
     let text='';
@@ -41,10 +44,9 @@ export class DashboardComponent {
         data => {
           text = data.text();
           */
-   this.http
-     .get('/api/feeds/')
+   this.http.get('/api/feeds/')
      .map(res=>res)
-     .subscribe(data=>{console.log(data.text())
+     .subscribe(data=>{//console.log(data.text())
        text = data.text();
         date = text.substr(0,text.indexOf('\n'));
           console.log('The date is '+ date+ "It has :" +date.length+'characters');
@@ -53,11 +55,20 @@ export class DashboardComponent {
           //console.log(firstT.substr(index, firstT.indexOf('/\r\n|\r|\n/')));
           let textArray = firstT.split(/\r\n|\r|\n/);
           for(var i=0;i<textArray.length-1;i++) {
-            key = textArray[i].substr(0,textArray[i].indexOf(':'));
-            value  = textArray[i].substr(textArray[i].indexOf(':')+1);
-            //console.log(key, value);
-            //console.log('Key ' + textArray[i].substr(0,textArray[i].indexOf(':'))
-            //  + ' Value '+textArray[i].substr(textArray[i].indexOf(':')+1));
+
+            textArray[i].trim();
+            let keyValueArray = textArray[i].split(':');
+            let key = keyValueArray[0];
+            let value = keyValueArray[1];
+            console.log(key, value)
+            // key = textArray[i].substr(0,textArray[i].indexOf(':'));
+            //value  = textArray[i].substr(textArray[i].indexOf(':')+1);
+
+            /***
+            console.log(key, value);
+            console.log('Key ' + textArray[i].substr(0,textArray[i].indexOf(':'))
+              + ' Value '+textArray[i].substr(textArray[i].indexOf(':')+1));
+             */
             feed = new Feed(key, value);
             console.log(feed);
             feedArray.push(feed);
