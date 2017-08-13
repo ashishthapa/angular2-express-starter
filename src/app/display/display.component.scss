@@ -8,6 +8,7 @@ $fHeadFontcolor:black;
     font-size: $fontSize;
     color:$fontColor;
     margin-left: -10px;
+    border-bottom: thick solid orangered;
   }
 
 }
@@ -16,11 +17,20 @@ $fHeadFontcolor:black;
   @include feedHeadMixin($fontSize, $fontColor)
 }
 
+@mixin feeds(){
+  .feed{
+    border-bottom: thick solid green;
+  }
+}
+
 
 
 @include media-mixins-mobile{
   @include feedHead($fHeadFontSize,$fHeadFontcolor);
+  @include feeds();
 }@include media-mixins-tablet{
+   @include feedHead($fHeadFontSize,$fHeadFontcolor);
+   @include feeds();
  }@include media-mixins-laptop{
   }@include media-mixins-desktop-and-bigger{
    }

@@ -20,11 +20,12 @@
               <span *ngIf="feeds.dataUnit">{{feeds.dataUnit}}</span>
               <span *ngIf="!feeds.dataUnit">{{'unknown'}}</span>
             </p>
-           <div>
-             <br/><br/>
+            <div>
+            </div>
+          </div>
         </div>
       </div>
+      <div *ngIf="!internalFeed.feeds"><span>No feeds today! sorry :(</span></div>
     </div>
   </div>
-  <div *ngIf="!internalFeed.feeds"><span>No feeds today! sorry :(</span></div>
 </div>
