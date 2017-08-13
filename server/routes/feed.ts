@@ -10,7 +10,7 @@ feedRouter.get('/', (req:Request, res:Response)=>{
   http.get("http://tuftuf.gambitlabs.fi/feed.txt", function (response) {
     response.setEncoding('utf8')
     response.on('data', function (body) {
-        console.log(body);
+        //console.log(body);
         res.send(body.toString());
     })
     response.on('error', console.error)

@@ -31,19 +31,14 @@ export class DashboardComponent {
 
 
   constructor(private http: Http, private feedService: FeedService) {
-    //console.log(this.feedService.getFeedData().map(data=>data).subscribe(data=>{console.log(data.text())}));
   }
 
   ngOnInit() {
 
-    /**
-     this.http.get('/api/feeds/')
-     .map(res=>res).subscribe(data=>{
-     */
     this.feedService.getFeedData()
       .map(data => data).subscribe(data => {
-      this.text = data.text();
-      this.handleData(this.text);
+        this.text = data.text();
+        this.handleData(this.text);
     },
       err => { this.handleError(err);},
       () => { console.log('Completed'); }
@@ -51,7 +46,6 @@ export class DashboardComponent {
   }
 
   private handleData(text:string){
-    console.log('Here is the data ' +text);
     this.date = text.substr(0, text.indexOf('\n'));
     this.index = this.date.length + 1;
     this.firstT = text.substr(this.index);
