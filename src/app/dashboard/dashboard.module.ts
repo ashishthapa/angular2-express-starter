@@ -7,6 +7,7 @@ import { routing } from './dashboard.router';
 import { SharedModule } from '../shared/shared.module';
 import {DisplayModule} from "../display/display.module";
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +20,7 @@ import {DisplayModule} from "../display/display.module";
   declarations: [
     DashboardComponent
   ],
+
   bootstrap: [
     DashboardComponent
   ]
