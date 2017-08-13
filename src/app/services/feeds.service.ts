@@ -15,10 +15,9 @@ export class FeedService{
 
   }
   getFeedData():Observable<any>{
-    console.log('inside feed service');
-    return this.http.get('/api/feeds/').map(data=>{
-      return data;
-    })
+    return this.http.get('/api/feeds/')
+      .map(data=>{ return data;})
+      .catch((err)=>{ return Observable.throw(new Error(`${ err.status } ${ err.statusText }`)) })
   }
 
 }
