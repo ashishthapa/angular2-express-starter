@@ -1,4 +1,29 @@
-table{
-  border-collapse: separate;
-  empty-cells: hide;
+@import "./../../media_mixins";
+
+$fHeadFontSize:16px;
+$fHeadFontcolor:black;
+
+@mixin feedHeadMixin($fontSize, $fontColor){
+  h4{
+    font-size: $fontSize;
+    color:$fontColor;
+    margin-left: -10px;
+  }
+
 }
+
+@mixin feedHead($fontSize, $fontColor){
+  @include feedHeadMixin($fontSize, $fontColor)
+}
+
+
+
+@include media-mixins-mobile{
+  @include feedHead($fHeadFontSize,$fHeadFontcolor);
+}@include media-mixins-tablet{
+ }@include media-mixins-laptop{
+  }@include media-mixins-desktop-and-bigger{
+   }
+
+
+

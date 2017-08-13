@@ -1,4 +1,37 @@
-<h2 *ngIf="internalFeed">{{'Live Feed on :'}} {{internalFeed.date}}</h2>
+<div class="container-fluid">
+  <div *ngIf="internalFeed.feeds">
+    <div class="row feedHead">
+      <div class="col-xs-12">
+        <h4 *ngIf="internalFeed">{{'Live Feed on :'}} {{internalFeed.date}}</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let feeds of internalFeed.feeds">
+        <div class="col-xs-12 col-sm-6">
+          <div class="feed">
+            <p>{{'Index : '+feeds.index}}</p>
+            <p>{{'Value : '+feeds.data}}</p>
+            <p> Variable Name:
+              <span *ngIf="feeds.variableName">{{feeds.variableName}}</span>
+              <span *ngIf="!feeds.variableName">{{'unknown'}}</span>
+            </p>
+            <p> Unit:
+              <span *ngIf="feeds.dataUnit">{{feeds.dataUnit}}</span>
+              <span *ngIf="!feeds.dataUnit">{{'unknown'}}</span>
+            </p>
+           <div>
+             <br/><br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!internalFeed.feeds"><span>No feeds today! sorry :(</span></div>
+</div>
+<!--
+
+<div class="displayTabPlus">
+<h3 *ngIf="internalFeed">{{'Live Feed on :'}} {{internalFeed.date}}</h3>
 <div *ngIf="internalFeed.feeds">
   <div class="table-responsive">
     <table class="table">
@@ -19,6 +52,16 @@
         <td>
           {{feeds.data}}
         </td>
+
+        <td>
+          <span *ngIf="feeds.variableName">{{feeds.data}}</span>
+          <span *ngIf="!feeds.variableName">{{''}}</span>
+        </td>
+
+        <td>
+          <span *ngIf="feeds.variableName">{{feeds.data}}</span>
+          <span *ngIf="!feeds.variableName">{{''}}</span>
+        </td>
       </tbody>
     </table>
   </div>
@@ -26,4 +69,5 @@
     <li>{{feeds.index}}{{feeds.data}}</li>
   </ul>
 </div>
-
+</div>
+-->
