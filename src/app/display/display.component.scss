@@ -2,35 +2,37 @@
 
 $fHeadFontSize:16px;
 $fHeadFontcolor:black;
+$borderHead:thick solid orangered;
+$borderFeed:thick solid green;
 
-@mixin feedHeadMixin($fontSize, $fontColor){
+@mixin feedHeadMixin($fontSize, $fontColor, $borderHead){
   h4{
     font-size: $fontSize;
     color:$fontColor;
     margin-left: -10px;
-    border-bottom: thick solid orangered;
+    border-bottom: $borderHead;
   }
 
 }
 
-@mixin feedHead($fontSize, $fontColor){
-  @include feedHeadMixin($fontSize, $fontColor)
+@mixin feedHead($fontSize, $fontColor,$borderHead){
+  @include feedHeadMixin($fontSize, $fontColor,$borderHead)
 }
 
-@mixin feeds(){
+@mixin feeds($borderFeed){
   .feed{
-    border-bottom: thick solid green;
+    border-bottom: $borderFeed;
   }
 }
 
 
 
 @include media-mixins-mobile{
-  @include feedHead($fHeadFontSize,$fHeadFontcolor);
-  @include feeds();
+  @include feedHead($fHeadFontSize,$fHeadFontcolor,$borderHead);
+  @include feeds($borderFeed);
 }@include media-mixins-tablet{
-   @include feedHead($fHeadFontSize,$fHeadFontcolor);
-   @include feeds();
+   @include feedHead($fHeadFontSize,$fHeadFontcolor,$borderHead);
+   @include feeds($borderFeed);
  }@include media-mixins-laptop{
   }@include media-mixins-desktop-and-bigger{
    }
