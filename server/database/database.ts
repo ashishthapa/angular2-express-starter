@@ -19,7 +19,7 @@ export class Database {
   }
 
   connectDB() {
-    mongoose.connect(MongoString.monURL)
+    mongoose.connect(MongoString.MONGO_URL)
     mongoose.connection.on('error', err => {
       console.log(err);
     })

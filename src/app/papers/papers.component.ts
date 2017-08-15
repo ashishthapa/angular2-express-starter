@@ -8,7 +8,6 @@ import {
 } from "../store/paper/paper.actions";
 import {IPaper} from "../store/paper/paper.reducer";
 import {PaperService} from "./papers.service";
-import {PaperPartialsComponent} from "../paper-partials/paper-partials.component";
 import {USER_GET} from "../store/profile/profile.actions";
 
 @Component({
