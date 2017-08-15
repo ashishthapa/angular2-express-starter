@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { routing } from './app.router';
 import { effects, store, instrumentation } from './store';
 import { SharedModule } from './shared/shared.module';
-import {PaperService} from "./papers/papers.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import {PaperService} from "./papers/papers.service";
   ],
   providers: [
 
-    PaperService
+
   ],
   bootstrap: [
     AppComponent

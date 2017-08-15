@@ -1,10 +1,11 @@
 import { RouterModule, Route } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import {BookModule} from "./books/book.module";
 
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   { loadChildren: 'app/dashboard/dashboard.module#DashboardModule', path: 'dashboard' },
-  { loadChildren: 'app/papers/papers.module#PapersModule', path: 'paper' }
+  { loadChildren:'app/books/book.module#BookModule', path:'books'}
 
 ];
 
