@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import {routing} from "./book.router";
 import {BookComponent} from "./book.component";
 import {SharedModule} from "../shared/shared.module";
+import {BookService} from "../service/book.service";
 
 
 @NgModule({
@@ -17,6 +18,9 @@ import {SharedModule} from "../shared/shared.module";
   ],
   declarations:[
     BookComponent
+  ],
+  providers:[
+    BookService
   ],
   bootstrap:[
     BookComponent

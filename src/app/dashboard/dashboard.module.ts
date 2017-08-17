@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { routing } from './dashboard.router';
 import { SharedModule } from '../shared/shared.module';
+import {BookService} from "../service/book.service";
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     SharedModule,
     routing
+  ],
+  providers:[
+    BookService
   ],
   declarations: [
     DashboardComponent
