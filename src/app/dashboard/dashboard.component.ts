@@ -7,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import { IAppState } from '../store';
 import {Book} from "../model/book.model";
 import {BookService} from "../service/book.service";
+import {Http, Response} from "@angular/http";
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +26,7 @@ export class DashboardComponent {
 
   feeds$: Observable<{}>;
 
-  constructor(public fb: FormBuilder, private bookService:BookService) {
+  constructor(public fb: FormBuilder, private bookService:BookService, private http:Http) {
 
 
     this.form = fb.group({
@@ -36,12 +37,14 @@ export class DashboardComponent {
 
   }
   ngOnInit(){
-    console.log(this.bookService.log());
+    this.http
+      .get('/api/library')
+      .map((response: Response)=>{return response.json()}).subscribe(data=>console.log(data));
+
   }
 
   ngAfterViewInit(){
-    this.bookService.log();
-    this.form.valueChanges.debounceTime(500).subscribe(data=>{console.log(data)});
+
   }
 
   submitBook(): void {
@@ -51,13 +54,8 @@ export class DashboardComponent {
     this.publishedDate = new Date().toDateString();
     this.genre = this.form.controls['genre'].value;
 
-    console.log(this.title);
-    console.log(this.author);
-    console.log(this.publishedDate);
-    console.log(this.genre);
-
     this.book = new Book(this.title, this.author,this.publishedDate,this.genre,this.availability, this.status);
-    console.log(this.book);
+    this.bookService.addBook(this.book);
   }
 
   submitCommentOnFeed(id: string, commentForm: FormGroup): void {

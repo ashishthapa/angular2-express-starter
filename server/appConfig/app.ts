@@ -8,7 +8,8 @@ import * as compression from "compression";
 import * as path from "path";
 
 import { publicRouter } from "../routes/public";
-import {paperRouter} from "../routes/papers";
+import {libraryRouter} from "../routes/library";
+
 
 export class APP{
   protected  app:express.Application;
@@ -52,6 +53,7 @@ export class APP{
   route(){
     // api routes
     this.app.use("/api/public", publicRouter);
-    this.app.use("/api/paper", paperRouter);
+    this.app.use("/api/library", libraryRouter);
+
   }
 }

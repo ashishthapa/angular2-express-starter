@@ -6,9 +6,8 @@ import * as bodyParser from "body-parser";
 
 import { Database} from './database/database';
 
-import {paperRouter} from "./routes/papers";
-import {userRouter} from "./routes/user";
-
+import {publicRouter} from "./routes/public";
+import {libraryRouter} from "./routes/library";
 
 
 const app: express.Application = express();
@@ -26,8 +25,8 @@ app.use(urlencoded({ extended: true }));
 // api routes
 
 
-app.use("/api/paper", paperRouter);
-app.use("/api/user", userRouter);
+app.use("/api/public", publicRouter);
+app.use("/api/library", libraryRouter);
 
 if (app.get("env") === "production") {
 
